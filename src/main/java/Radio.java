@@ -12,16 +12,16 @@ public class Radio {
 
     public Radio() {
         this.countOfRadiostations = 10;// по умолчанию 10 радиостанций
+        this.maxNumberofRadiostations = this.countOfRadiostations - 1;
     }
 
-    public int getCountOfRadiostations(){
+    public int getCountOfRadiostations() {
         return countOfRadiostations;
     }
 
-    public int getMaxNumberOfRadiostations(){ // геттер максимального номера станции при установке количества станций пользователем
+    public int getMaxNumberOfRadiostations() { // геттер максимального номера станции при установке количества станций пользователем
         return maxNumberofRadiostations;
     }
-
 
 
     public void setCurrentNumberOfRadiostation(int newCurrentNumberOfRadiostation) {
