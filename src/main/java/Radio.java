@@ -3,9 +3,11 @@ public class Radio {
     private int currentSoundVolume; // текущий уровень звука
 
     private int countOfRadiostations; // количество радиостанций
+    private int maxNumberofRadiostations;
 
     public Radio(int countOfRadio) { // конструктор для установки количества радиостанций
         this.countOfRadiostations = countOfRadio;
+        this.maxNumberofRadiostations = this.countOfRadiostations - 1;
     }
 
     public Radio() {
@@ -17,7 +19,7 @@ public class Radio {
     }
 
     public int getMaxNumberOfRadiostations(){ // геттер максимального номера станции при установке количества станций пользователем
-        return (countOfRadiostations - 1);
+        return maxNumberofRadiostations;
     }
 
 
@@ -27,7 +29,7 @@ public class Radio {
             return;
         }
 
-        if (newCurrentNumberOfRadiostation > countOfRadiostations -1) { // установка номера радиостанции больше максимальной
+        if (newCurrentNumberOfRadiostation > maxNumberofRadiostations) { // установка номера радиостанции больше максимальной
             return;
         }
         currentNumberOfRadiostation = newCurrentNumberOfRadiostation;
@@ -38,7 +40,7 @@ public class Radio {
     }
 
     public void next() {
-        if (currentNumberOfRadiostation == countOfRadiostations - 1) { // если текущий номер станции равен максимальной (количество станций минус 1), то следующий номер будет 0
+        if (currentNumberOfRadiostation == maxNumberofRadiostations) { // если текущий номер станции равен максимальной (количество станций минус 1), то следующий номер будет 0
             currentNumberOfRadiostation = 0;
         } else {
             currentNumberOfRadiostation++; // иначе просто увеличиваем номер на 1
@@ -47,7 +49,7 @@ public class Radio {
 
     public void prev() {
         if (currentNumberOfRadiostation == 0) { // если текущий номер станции равен 0, то предыдущий будет номер максимальной (количество станций минус 1)
-            currentNumberOfRadiostation = countOfRadiostations - 1;
+            currentNumberOfRadiostation = maxNumberofRadiostations;
         } else {
             currentNumberOfRadiostation--; // иначе уменьшаем на 1
         }
